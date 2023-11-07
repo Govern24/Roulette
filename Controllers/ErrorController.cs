@@ -10,7 +10,7 @@ namespace Roulette.Controllers
     [ApiController]
     public class ErrorController : ControllerBase
     {
-        [Route("/error-local-development")]
+        [HttpGet("error-local-development")]
         public IActionResult ErrorLocalDevelopment([FromServices] IWebHostEnvironment env)
         {
             if (env.EnvironmentName != "Development")
@@ -24,7 +24,7 @@ namespace Roulette.Controllers
                 title: context.Error.Message);
         }
 
-        [Route("/error")]
+        [HttpGet("error")]
         public IActionResult Error() => Problem();
     }
 }
